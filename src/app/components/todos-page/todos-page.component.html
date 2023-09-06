@@ -13,17 +13,17 @@
 
     <section class="todoapp__main">
       <app-todo
-      *ngFor="let todo of visibleTodos$ | async; let i = index; trackBy: trackById"
-      [todo]="todo"
-      (delete)="deleteTodo(todo)"
-      (rename)="renameTodo(todo, $event)"
-      (toggle)="toggleTodo(todo)"
+        *ngFor="let todo of visibleTodos$ | async; let i = index; trackBy: trackById"
+        [todo]="todo"
+        (delete)="deleteTodo(todo)"
+        (rename)="renameTodo(todo, $event)"
+        (toggle)="toggleTodo(todo)"
       ></app-todo>
     </section>
 
     <footer class="todoapp__footer">
       <span class="todo-count">
-        {{ activeCount$ }} items left
+        {{ activeCount$ | async }} items left
       </span>
 
        <app-todo-filter></app-todo-filter>

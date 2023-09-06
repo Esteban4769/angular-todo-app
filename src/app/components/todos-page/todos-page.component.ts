@@ -17,12 +17,14 @@ export class TodosPageComponent implements OnInit {
     distinctUntilChanged(),
     map(todos => todos.filter(todo => !todo.completed))
   )
+
   completedTodos$ = this.todos$.pipe(
     map(todos => todos.filter(todo => todo.completed))
   )
   activeCount$ = this.activeTodos$.pipe(
     map(todos => todos.length)
   )
+
   visibleTodos$ = this.route.params.pipe(
     switchMap(params => {
       switch (params['status']) {
